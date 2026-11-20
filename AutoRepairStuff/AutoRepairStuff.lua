@@ -17,7 +17,7 @@ local function RepairAndReport(cost, useGuildFunds)
         if GetRepairAllCost() == 0 then
             StopRepairCheck()
             print(("Auto Repair: Repaired for %s using %s."):format(
-                GetCoinTextureString(cost), funding))
+                C_CurrencyInfo.GetCoinTextureString(cost), funding))
         end
     end, 30)
 end
