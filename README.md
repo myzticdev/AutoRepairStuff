@@ -19,6 +19,13 @@ client you play. The folder should directly contain `AutoRepairStuff.toc` and
 Open **Esc → Options → AddOns → Auto Repair** and choose a **Repair mode**.
 Pick **Your gold**, **Guild gold when available**, or **Off**.
 
+- **Hide repair message** hides the green success message. Insufficient-gold messages still appear.
+- **Durability threshold** defaults to **Any damage**. Set it to **5%**, for example,
+  to wait until at least one equipped item is below 5%. Once triggered, the
+  vendor still repairs all eligible gear, including items in your bags.
+
+These settings are saved per character.
+
 ## Chat commands
 
 | Command | What it does |
@@ -32,7 +39,7 @@ The mode is saved per character. If the server rejects a guild repair, use
 the vendor's repair button or switch to personal mode and reopen the vendor.
 The addon makes one repair request per vendor-open event. After the vendor
 updates to show the repair is complete, your chat displays a green message
-with the cost and payment source. Keep the vendor window open until the message appears.
+with the cost and payment source. If the message is enabled, keep the vendor window open until it appears.
 
 ## Maintenance
 
