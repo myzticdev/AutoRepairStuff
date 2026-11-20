@@ -1,0 +1,39 @@
+# Auto Repair
+
+Auto Repair repairs equipped items and repairable items in your bags when
+you open a repair vendor. The same addon folder works across the targeted clients.
+
+## Install
+
+Copy the inner `AutoRepairStuff` folder into `Interface/AddOns/` for each
+client you play. The folder should directly contain `AutoRepairStuff.toc` and
+`AutoRepairStuff.lua`. Enable Auto Repair on the character selection AddOns screen.
+
+| Client | WoW folder | Interface |
+| --- | --- | --- |
+| Retail | `_retail_` | 120105, 120107 |
+| Forever | `_forever_` | 16001 |
+| Classic Era (including Hardcore and Season of Discovery) | `_classic_era_` | 11509 |
+| Burning Crusade Classic Anniversary | `_anniversary_` | 20506 |
+| Mists of Pandaria Classic | `_classic_` | 50504 |
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| `/autorepair` | Show the current mode. |
+| `/autorepair personal` | Use your own gold. This is the default. |
+| `/autorepair guild` | Use guild funds when your rank permits it and your daily allowance covers the bill. Otherwise, use personal gold if you have enough. |
+| `/autorepair off` | Disable automatic repairs. |
+
+The mode is saved per character. If the server rejects a guild repair, use
+the vendor's repair button or switch to personal mode and reopen the vendor.
+The addon makes one repair request per vendor-open event.
+
+## Maintenance
+
+`AutoRepairStuff.lua` contains the event handler, repair rules, and slash
+command. There are no library dependencies. For a client update, run
+`/run print(select(4, GetBuildInfo()))` in the target client to get its interface
+number. Update that client's interface number on the shared TOC line after
+checking the addon at a vendor.
