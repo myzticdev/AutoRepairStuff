@@ -1,4 +1,5 @@
 local addonName = ...
+local modeVariable = "AutoRepairStuffMode"
 local repairCheck
 
 local function StopRepairCheck()
@@ -9,14 +10,14 @@ local function StopRepairCheck()
 end
 
 local function RepairAndReport(cost, useGuildFunds)
-    local funding = useGuildFunds and "guild funds" or "personal gold"
+    local funding = useGuildFunds and "guild gold" or "your gold"
     RepairAllItems(useGuildFunds)
 
     -- The vendor cost updates after the server processes the repair.
     repairCheck = C_Timer.NewTicker(0.1, function()
         if GetRepairAllCost() == 0 then
             StopRepairCheck()
-            print(("Auto Repair: Repaired for %s using %s."):format(
+            print(("|cff00ff00Auto Repaired for %s with %s|r"):format(
                 C_CurrencyInfo.GetCoinTextureString(cost), funding))
         end
     end, 30)
@@ -48,12 +49,30 @@ local function RepairAtVendor()
     end
 end
 
+local function RegisterRepairSettings()
+    local category = Settings.RegisterVerticalLayoutCategory("Auto Repair")
+    local setting = Settings.RegisterProxySetting(category, modeVariable,
+        Settings.VarType.String, "Repair mode", "personal",
+        function() return AutoRepairStuffMode end,
+        function(mode) AutoRepairStuffMode = mode end)
+
+    Settings.CreateDropdown(category, setting, function()
+        local options = Settings.CreateControlTextContainer()
+        options:Add("personal", "Your gold")
+        options:Add("guild", "Guild gold when available")
+        options:Add("off", "Off")
+        return options:GetData()
+    end, "Choose how to pay for automatic repairs. Guild mode uses your gold if your rank or allowance does not cover the repair.")
+    Settings.RegisterAddOnCategory(category)
+end
+
 local function SetRepairMode(message)
     local mode = message:match("^%s*(%S*)%s*$")
     mode = mode and mode:lower()
 
     if mode == "personal" or mode == "guild" or mode == "off" then
         AutoRepairStuffMode = mode
+        Settings.NotifyUpdate(modeVariable)
     elseif mode ~= "" then
         print("Auto Repair: Use /autorepair [personal | guild | off].")
         return
@@ -79,6 +98,7 @@ frame:SetScript("OnEvent", function(self, event, loadedAddon)
         self:UnregisterEvent("ADDON_LOADED")
         self:RegisterEvent("MERCHANT_SHOW")
         self:RegisterEvent("MERCHANT_CLOSED")
+        RegisterRepairSettings()
         return
     end
 

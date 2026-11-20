@@ -14,7 +14,12 @@ client you play. The folder should directly contain `AutoRepairStuff.toc` and
 | Retail | `_retail_` | 120105, 120107 |
 | Forever | `_forever_` | 16001 |
 
-## Commands
+## Settings
+
+Open **Esc → Options → AddOns → Auto Repair** and choose a **Repair mode**.
+Pick **Your gold**, **Guild gold when available**, or **Off**.
+
+## Chat commands
 
 | Command | What it does |
 | --- | --- |
@@ -26,8 +31,8 @@ client you play. The folder should directly contain `AutoRepairStuff.toc` and
 The mode is saved per character. If the server rejects a guild repair, use
 the vendor's repair button or switch to personal mode and reopen the vendor.
 The addon makes one repair request per vendor-open event. After the vendor
-updates to show the repair is complete, your chat displays the cost and payment
-source. Keep the vendor window open until the message appears.
+updates to show the repair is complete, your chat displays a green message
+with the cost and payment source. Keep the vendor window open until the message appears.
 
 ## Maintenance
 
