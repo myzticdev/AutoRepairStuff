@@ -10,7 +10,7 @@ you paid in chat.
 
 ## Install
 
-1. On the [latest release](https://github.com/myzticdev/AutoRepairStuff/releases/latest) page, download the **AutoRepairStuff** zip under **Assets** (not "Source code") and unzip it.
+1. On the [latest release](https://github.com/myzticdev/AutoRepairStuff/releases/latest) page, download the **AutoRepairStuff** ZIP under **Assets** and unzip it. If the release only offers **Source code (zip)**, download that and open the extracted folder to find the inner `AutoRepairStuff` folder.
 2. Copy the `AutoRepairStuff` folder from the zip into your game's AddOns folder.
 
    | Game | AddOns folder |

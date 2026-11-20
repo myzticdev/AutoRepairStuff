@@ -7,7 +7,6 @@
 ## Version: @project-version@
 ## IconTexture: Interface\AddOns\AutoRepairStuff\icon
 ## SavedVariablesPerCharacter: AutoRepairStuffMode, AutoRepairStuffOptions
-# Replace 0 with the CurseForge project id after the project is created.
 ## X-Curse-Project-ID: 1819279
 
 AutoRepairStuff.lua
