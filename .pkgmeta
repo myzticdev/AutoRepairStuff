@@ -1,0 +1,5 @@
+package-as: AutoRepairStuff
+enable-nolib-creation: no
+ignore:
+  - README.md
+  - assets

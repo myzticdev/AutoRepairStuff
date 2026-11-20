@@ -2,9 +2,12 @@
 ## AllowLoadGameType: standard, camelot
 ## ExcludeLoadGameType: classic
 ## Title: Auto Repair
-## IconTexture: Interface\AddOns\AutoRepairStuff\icon
 ## Notes: Automatically repairs gear when you open a repair vendor.
-## Version: 0.6.0
+## Author: myzticdev
+## Version: @project-version@
+## IconTexture: Interface\AddOns\AutoRepairStuff\icon
 ## SavedVariablesPerCharacter: AutoRepairStuffMode, AutoRepairStuffOptions
+# Replace 0 with the CurseForge project id after the project is created.
+## X-Curse-Project-ID: 0
 
 AutoRepairStuff.lua
