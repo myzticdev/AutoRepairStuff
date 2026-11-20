@@ -3,7 +3,7 @@
 ## ExcludeLoadGameType: classic
 ## Title: Auto Repair
 ## Notes: Automatically repairs gear when you open a repair vendor.
-## Version: 0.3.0
+## Version: 0.4.0
 ## SavedVariablesPerCharacter: AutoRepairStuffMode
 
 AutoRepairStuff.lua

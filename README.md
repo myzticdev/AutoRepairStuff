@@ -25,7 +25,9 @@ client you play. The folder should directly contain `AutoRepairStuff.toc` and
 
 The mode is saved per character. If the server rejects a guild repair, use
 the vendor's repair button or switch to personal mode and reopen the vendor.
-The addon makes one repair request per vendor-open event.
+The addon makes one repair request per vendor-open event. After the vendor
+updates to show the repair is complete, your chat displays the cost and payment
+source. Keep the vendor window open until the message appears.
 
 ## Maintenance
 

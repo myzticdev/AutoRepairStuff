@@ -1,4 +1,26 @@
 local addonName = ...
+local repairCheck
+
+local function StopRepairCheck()
+    if repairCheck then
+        repairCheck:Cancel()
+        repairCheck = nil
+    end
+end
+
+local function RepairAndReport(cost, useGuildFunds)
+    local funding = useGuildFunds and "guild funds" or "personal gold"
+    RepairAllItems(useGuildFunds)
+
+    -- The vendor cost updates after the server processes the repair.
+    repairCheck = C_Timer.NewTicker(0.1, function()
+        if GetRepairAllCost() == 0 then
+            StopRepairCheck()
+            print(("Auto Repair: Repaired for %s using %s."):format(
+                GetCoinTextureString(cost), funding))
+        end
+    end, 30)
+end
 
 local function RepairAtVendor()
     if AutoRepairStuffMode == "off" or not CanMerchantRepair() then
@@ -14,13 +36,13 @@ local function RepairAtVendor()
         local allowance = GetGuildBankWithdrawMoney()
         -- A value of -1 means the guild rank has no daily limit.
         if allowance == -1 or (allowance and allowance >= cost) then
-            RepairAllItems(true)
+            RepairAndReport(cost, true)
             return
         end
     end
 
     if GetMoney() >= cost then
-        RepairAllItems(false)
+        RepairAndReport(cost, false)
     else
         print("Auto Repair: Not enough gold to repair all items.")
     end
@@ -56,8 +78,12 @@ frame:SetScript("OnEvent", function(self, event, loadedAddon)
         SlashCmdList.AUTOREPAIRSTUFF = SetRepairMode
         self:UnregisterEvent("ADDON_LOADED")
         self:RegisterEvent("MERCHANT_SHOW")
+        self:RegisterEvent("MERCHANT_CLOSED")
         return
     end
 
-    RepairAtVendor()
+    StopRepairCheck()
+    if event == "MERCHANT_SHOW" then
+        RepairAtVendor()
+    end
 end)
