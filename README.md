@@ -1,5 +1,7 @@
 # Auto Repair
 
+<img src="assets/icon.png" alt="Auto Repair addon icon" width="128" />
+
 Auto Repair repairs equipped items and repairable items in your bags when
 you open a repair vendor. Install the same addon folder for WoW Retail and WoW Forever.
 
