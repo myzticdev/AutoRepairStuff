@@ -1,7 +1,7 @@
 # Auto Repair
 
 Auto Repair repairs equipped items and repairable items in your bags when
-you open a repair vendor. The same addon folder works across the targeted clients.
+you open a repair vendor. Install the same addon folder for WoW Retail and WoW Forever.
 
 ## Install
 
@@ -13,9 +13,6 @@ client you play. The folder should directly contain `AutoRepairStuff.toc` and
 | --- | --- | --- |
 | Retail | `_retail_` | 120105, 120107 |
 | Forever | `_forever_` | 16001 |
-| Classic Era (including Hardcore and Season of Discovery) | `_classic_era_` | 11509 |
-| Burning Crusade Classic Anniversary | `_anniversary_` | 20506 |
-| Mists of Pandaria Classic | `_classic_` | 50504 |
 
 ## Commands
 
