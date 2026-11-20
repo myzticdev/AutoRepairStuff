@@ -6,11 +6,11 @@ When you open a repair vendor, **Auto Repair** fixes your equipped gear and
 repairable items in your bags. It uses your gold by default and shows what
 you paid in chat.
 
-**For WoW Retail and WoW Forever.** [Download Auto Repair](https://github.com/myzticdev/AutoRepairStuff/archive/refs/heads/main.zip)
+**For WoW Retail and WoW Forever.** [Download Auto Repair](https://github.com/myzticdev/AutoRepairStuff/releases/latest)
 
 ## Install
 
-1. Download and unzip the file.
+1. On the release page, download **Source code (zip)** under **Assets** and unzip it.
 2. Open the extracted folder and copy the inner `AutoRepairStuff` folder into your game's AddOns folder.
 
    | Game | AddOns folder |
